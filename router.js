@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
   });
 });
 
-router.post("/verify", async (req, res) => {
+router.post("/", async (req, res) => {
   const { id, password } = req.body;
   console.log("> id: ", id ,);
 
@@ -47,24 +47,6 @@ router.post("/verify", async (req, res) => {
   };
 
   res.send({ success: true, user: content });
-});
-
-router.post("/post", async (req, res) => {
-  res.send(501);
-  return;
-
-  const user = new UserSchema({
-    id: "OsfkzAkfksJFke",
-    name: "Ladet",
-    firstname: "Tanguy",
-    phone: "0600000000",
-    email: "thomasgleizes34@gmail.com",
-    password: "azerty123",
-  });
-
-  user.save();
-
-  res.send();
 });
 
 module.exports = router;
