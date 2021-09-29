@@ -26,6 +26,8 @@ router.get("/", (req, res) => {
 
 router.post("/verify", async (req, res) => {
   const { id, password } = req.body;
+  console.log("> id: ", id ,);
+
   const user = await UserSchema.findOne({ id: id, password: password });
 
   if (!user) {
