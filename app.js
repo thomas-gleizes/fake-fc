@@ -14,7 +14,7 @@ app.use(express.json());
 
 app.use("/api", router);
 
-app.listen(8080, async () => {
+app.listen(process.env.PORT, async () => {
   await mongoose.connect(process.env.MONGODB_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
