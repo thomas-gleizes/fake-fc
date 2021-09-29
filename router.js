@@ -5,6 +5,25 @@ const router = express.Router();
 
 const UserSchema = require("./schema");
 
+router.get("/", (req, res) => {
+  res.send({
+    success: true,
+    routes: {
+      POST: [
+        {
+          path: "/verify",
+          data: [
+            {
+              id: "String",
+              password: "String",
+            },
+          ],
+        },
+      ],
+    },
+  });
+});
+
 router.post("/verify", async (req, res) => {
   const { id, password } = req.body;
   const user = await UserSchema.findOne({ id: id, password: password });
