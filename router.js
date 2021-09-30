@@ -39,7 +39,7 @@ router.post("/", async (req, res) => {
     id: crypto
       .createHash("sha256")
       .update(`${user.id}-${user.name}-${user.firstname}`)
-      .digest("base64"),
+      .digest("hex"),
     name: user.name,
     firstname: user.firstname,
     email: user.email,
